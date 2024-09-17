@@ -1,0 +1,207 @@
+@import url(../TRAB_AULA/static/css/animations.css);
+
+body {
+    margin: 0;
+    overflow: scroll;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.lateral {
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 100vh;
+    background: rgba(32, 44, 51);
+    overflow: visible;
+    position: fixed;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 0; 
+}
+
+.icons, .engrenagem, .fotoperfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icons img, .engrenagem img {
+    margin-bottom: 20px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.engrenagem {
+    margin-bottom: 60px;
+}
+
+.mensagem, .canais, .comunidade, .config {
+    transition: 0.4s ease-in-out;
+}
+
+.mensagem:hover, .canais:hover, .comunidade:hover, .config:hover{
+    background: rgba(242, 242, 242);
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.mensagem:hover + .tooltip {
+    visibility: visible;
+    -webkit-animation: moveToRight 1s ease both;
+	animation: moveToRight 1s ease both;
+    opacity: 1;
+}
+
+.tooltip {
+    position: absolute;
+    top: 4%;
+    left: 50px;
+    visibility: hidden;
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-family: Arial, sans-serif;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    border-radius: 50px;
+}
+
+.tooltip-canais {
+    position: absolute;
+    top: 9%;
+    left: 50px;
+    visibility: hidden;
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-family: Arial, sans-serif;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    border-radius: 50px;
+}
+
+.canais:hover + .tooltip-canais {
+    visibility: visible;
+    -webkit-animation: moveToRight 1s ease both;
+	animation: moveToRight 1s ease both;
+    opacity: 1;
+}
+
+.tooltip-comunidade {
+    position: absolute;
+    top: 15%;
+    left: 50px;
+    visibility: hidden;
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-family: Arial, sans-serif;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    border-radius: 50px;
+}
+
+.comunidade:hover + .tooltip-comunidade {
+    visibility: visible;
+    -webkit-animation: moveToRight 1s ease both;
+	animation: moveToRight 1s ease both;
+    opacity: 1;
+}
+
+@keyframes moveToRight { 
+	from { }
+	to { -webkit-transform: translateX(15%); transform: translateX(15%); }
+}
+
+.conversas {
+    background: rgba(17,27,33);
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+}
+
+.titulo-principal{
+    margin-left: 80px;
+}
+
+.principal_titulo{
+    color: #ffffff;
+    text-align: center;
+    font-family: system-ui, 'SF Pro Text', 'SF Pro Icons',  -apple-system, system-ui, BlinkMacSystemFont,  'Segoe UI', Helvetica, Arial, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-style: bold;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-icon{
+    cursor: pointer;
+    margin-top: 23px;
+    z-index: 2;
+}
+
+.circle-background {
+    position: absolute;
+    width: 30px; 
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-radius: 50%; 
+    z-index: 1; 
+    top: 3%;
+  }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    -webkit-animation: scaleUpCenter .4s ease-out both;
+	animation: scaleUpCenter .4s ease-out both, moveleft 1s;
+    margin-left: -150px;
+    border-radius: 8px;
+    transform: translateX(-40px);
+}
+
+@keyframes moveleft {
+    from {transform: translateX(0px);}
+    to {transform: translateX(-40px);}
+}
+
+@-webkit-keyframes scaleUpCenter {
+	from { opacity: 0; -webkit-transform: scale(.7); }
+}
+@keyframes scaleUpCenter {
+	from { opacity: 0; -webkit-transform: scale(.7); transform: scale(.7); }
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: system-ui, 'SF Pro Text', 'SF Pro Icons',  -apple-system, system-ui, BlinkMacSystemFont,  'Segoe UI', Helvetica, Arial, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
