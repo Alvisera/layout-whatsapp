@@ -43,27 +43,43 @@
                 alt=""
                 onmouseover="trocarImagem(this, '../img/config_hover.png')" 
                 onmouseout="restaurarImagem(this, '../img/config.png')">
-            <div class="tooltip-comunidade">Conversas</div>
+            <div class="tooltip-config">Configurações</div>
 
                 <img class="fotoperfil" src="img/iconperfil.png" alt="">
             </div>
         </div>
     </section>
-    <section>
+    <section class="cabeçalho">
         <div class="conversas">
             <div class="titulo-principal">
                 <h2 class="principal_titulo">Conversas</h2>
             </div>
             <div id="dropdown">
-                <img src="img/3pontos.png" alt="Menu" class="menu-icon" onclick="toggleDropdown()">
+                <img src="img/3pontos.png" alt="Menu" class="menu-icon" onclick="toggleDropdown()" id="three-points">
                 <div id="dropdownMenu" class="dropdown-content">
                     <a href="#">Novo grupo</a>
+                    <a href="#">Mensagens favoritas</a>
+                    <a href="#">Selecionar conversas</a>
                     <a href="#">Desconectar</a>
-                    <a href="#">Baixar WhatsApp</a>
+                    <a href="#" class="download-app">Baixar o WhatsApp para Windows</a>
                 </div>
             </div>
+            <div class="input-pesquisa">
+                <input type="text" placeholder="Pesquisar" class="text-input">
+                <span id="span1">Tudo</span>
+                <span id="span2">Não lidas</span>
+                <span id="span3">Grupos</span>
+            </div>
+            <div class="arquivados">
+                <img src="img/arquivadas.png" alt="" class="img-arquivados">
+                <h4>Arquivadas</h4>
+            </div>
+            <div class="conversas-chat">
+                <img src="" alt="">
+                <h3></h3> 
+            </div>
         </div>
-    </section>  
+    </section> 
     <script src="script.js"></script>
 </body>
 </html>
