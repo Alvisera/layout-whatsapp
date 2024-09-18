@@ -1,3 +1,23 @@
+function realizarAcao2() {
+  const img = document.getElementById('three-points');
+  img.style.backgroundColor = 'rgb(41,50,56)';
+}
+
+function verificarCliqueFora(event) {
+  const img = document.getElementById('three-points');
+  if (!img.contains(event.target)) {
+      img.style.backgroundColor = ''; 
+  }
+}
+
+document.getElementById('three-points').addEventListener('click', function(event) {
+  realizarAcao2();
+  event.stopPropagation(); 
+});
+
+document.addEventListener('click', verificarCliqueFora);
+
+
 function trocarImagem(elemento, novaImagem) {
     elemento.style.opacity = '0';  
     setTimeout(function() {
@@ -35,18 +55,31 @@ window.onclick = function(event) {
     }
 }
 
-const menuIcons = document.querySelectorAll('.menu-icon');
+  let botaoAtivo = null; 
 
-menuIcons.forEach(icon => {
-  icon.addEventListener('click', () => {
-    if (!icon.parentElement.querySelector('.circle-background')) {
-      const circle = document.createElement('div');
-      circle.classList.add('circle-background');
-      icon.parentElement.appendChild(circle); 
-    } else {
-      const existingCircle = icon.parentElement.querySelector('.circle-background');
-      existingCircle.remove(); 
-    }
-  }); 
-});
+          function realizarAcao(botaoId) {
+              if (botaoAtivo) {
+                  document.getElementById(botaoAtivo).style.backgroundColor = 'rgb(32,44,51)';
+                  document.getElementById(botaoAtivo).style.color = 'rgb(134,150,160)';
+              }
 
+              const botao = document.getElementById(botaoId);
+              botao.style.backgroundColor = 'rgb(10,51,44)';  
+              botao.style.color = 'rgb(0,168,132)';         
+
+              botaoAtivo = botaoId;
+          }
+
+          document.getElementById('span1').addEventListener('click', function() {
+              realizarAcao('span1');
+          });
+
+          document.getElementById('span2').addEventListener('click', function() {
+              realizarAcao('span2');
+          });
+
+          document.getElementById('span3').addEventListener('click', function() {
+              realizarAcao('span3');
+          });
+          
+          
