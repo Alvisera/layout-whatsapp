@@ -1,13 +1,15 @@
 function realizarAcao2() {
   const img = document.getElementById('three-points');
   img.style.backgroundColor = 'rgb(41,50,56)';
+  img.style.borderRadius = '20px';
+  img.style.transition = '0.5s'
+  img.style.backgroundSize = '100px'
 }
 
 function verificarCliqueFora(event) {
   const img = document.getElementById('three-points');
   if (!img.contains(event.target)) {
-      img.style.backgroundColor = ''; 
-  }
+      img.style.backgroundColor = ''; }
 }
 
 document.getElementById('three-points').addEventListener('click', function(event) {
@@ -17,6 +19,40 @@ document.getElementById('three-points').addEventListener('click', function(event
 
 document.addEventListener('click', verificarCliqueFora);
 
+function hover() {
+  const seta = document.getElementById('seta-baixo')
+  seta.style.opacity = '1';
+  seta.style.transition = '0.2s';
+  seta.style.animation = 'moveToLeft 0.2s ease both, moveToLeft 0.2s ease both'
+}
+
+function saidaHover() {
+  const seta = document.getElementById('seta-baixo')
+  seta.style.opacity = '';
+  seta.style.animation = 'moveToRight2 0.2s ease both, moveToRight2 0.2s ease both'
+}
+
+document.getElementById('conversa1').addEventListener('mouseenter', function() {
+  hover();
+})
+
+document.getElementById('conversa1').addEventListener('mouseleave', function() {
+  saidaHover();
+})
+
+function toggleDropdown1() {
+  const dropdown = document.getElementById("dropdownseta1");
+  if (dropdown.style.display === "block") {
+      dropdown.style.animation = 'scaleDown 0.2s ease both';
+      setTimeout(function() {
+        dropdown.style.display = "none";
+    }, 200)
+  } else {
+      dropdown.style.display = "block";
+      dropdown.style.animation = 'scaleUp 0.2s ease both';
+  }
+  
+}
 
 function trocarImagem(elemento, novaImagem) {
     elemento.style.opacity = '0';  
@@ -53,7 +89,17 @@ window.onclick = function(event) {
             }
         }
     }
+    if (!event.target.closest('.seta-baixo-cls') && !event.target.closest('#dropdownseta1')) {
+      const dropdowns = document.getElementsByClassName("dropdown-1");
+      for (let i = 0; i < dropdowns.length; i++) {
+          const openDropdown = dropdowns[i];
+          if (openDropdown.style.display === "block") {
+              openDropdown.style.display = "none";
+          }
+      }
+  }
 }
+    
 
   let botaoAtivo = null; 
 
