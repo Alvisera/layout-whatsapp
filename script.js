@@ -89,12 +89,14 @@ window.onclick = function(event) {
             }
         }
     }
-    if (!event.target.closest('.seta-baixo-cls') && !event.target.closest('#dropdownseta1')) {
+    if (!event.target.closest('.seta-baixo-cls') && !event.target.closest('seta-baixo')) {
       const dropdowns = document.getElementsByClassName("dropdown-1");
       for (let i = 0; i < dropdowns.length; i++) {
           const openDropdown = dropdowns[i];
           if (openDropdown.style.display === "block") {
               openDropdown.style.display = "none";
+              openDropdown.style.animation = 'scaleDown 0.2s ease both';
+              dropdowns.style.animation = 'scaleDown 0.2s ease both';
           }
       }
   }
